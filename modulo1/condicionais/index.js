@@ -15,7 +15,6 @@
 
 // Exercícios de escrita de código 
 // 1 - 
-
 const age = Number(prompt("Qual sua idade?"))
 
 if(age >= 10) {
@@ -64,9 +63,9 @@ if((genero === "fantasia") && (preco < 15)) {
 } else if ((genero !== "fantasia") && (preco > 15) ) 
     console.log("Escolha outro filme :(")
 
-
 // Desafios
 // 1 -
+
 
 const genero = prompt("Qual o gênero do filme escolhido?").toLowerCase()
 const preco = prompt("Qual o preço do ingresso?")
@@ -78,5 +77,4 @@ if((genero === "fantasia") && (preco < 15)) {
     console.log(`Aproveite o seu(sua) ${lanche}`)
 } else if ((genero !== "fantasia") && (preco > 15) ) 
     console.log("Escolha outro filme :(")
-
 
