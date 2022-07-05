@@ -50,7 +50,7 @@ function Post(props) {
          </div>
        )
      })
-  
+  )
 
   return (
     <main>
