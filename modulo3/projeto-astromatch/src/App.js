@@ -1,34 +1,16 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import TelaInicial from "./pages/TelaInicial";
-import TelaDeMatches from "./pages/TelaDeMatches";
+import React from "react";
+import Header from "./components/cards/Header/Header";
+import Footer from "./components/cards/Footer/Footer";
+import Container from "./components/cards/Container/Container";
 
 function App() {
-  const [actualPage, setActualPage] = useState("first")
-
-  switchPage = () => {
-    switch (setActualPage) {
-      case "first":
-        return <TelaInicial />
-      case "second":
-        return  <TelaDeMatches  />
-      default:
-        return <div>Error! Page not found.</div>
-    }
-  }
-
-  function goToFirstPage() {
-    setActualPage(first)
-  }
-
-  function goToSecondPage() {
-    setActualPage(second)
-  }
-
   return (
     <>
-     {switchPage()}
+      <Header />
+      <Container />
+      <Footer />
     </>
+   
   );
 }
 
