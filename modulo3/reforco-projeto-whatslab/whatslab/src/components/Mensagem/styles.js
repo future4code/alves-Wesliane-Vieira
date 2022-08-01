@@ -1,64 +1,92 @@
 import styled from "styled-components";
 
-export const InputUsuario = styled.input`
-  position: absolute;
-  bottom: 1%;
-  left: 1%;
-  width: 10vw;
-  height: 4vh;
-  border-radius: 3px;
-  border-color: green;
-`
 
-export const MainContainer = styled.div`
+export const AppContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 60vw;
-  height: 89vh;
-  border: 2px solid green;
+  justify-content: flex-start;
+  width: 45vw;
+  height: 85vh;
   margin: 0 auto;
-  align-items: left; 
+  border: 2px solid black;
   background: #ECFFE9;
+  box-sizing: border-box;
+`
+
+export const MenssagensContainer = styled.div`
+  flex-grow: 1;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  overflow: auto; //add scroll nas msgs 
+   
+`
+export const BalaoDeMensagem = styled.div`
+  margin: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  border-radius: 5px;
+  display: flex;
+  background-color: white;
+  align-self: center; 
+  max-width: 30vw;
+  min-width: 5vw;
+  word-break: break-word; //quebra linha
+  padding: 0.8em 0.7em;
+  border-radius: 0.5em;
+  font-weight: 450;
+  line-height: 1.3; //espaço entre linhas
+  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2); //add profundidade
   position: relative;
-  top: 10%;
+
+  
+    &:after {
+      //triângulo na ponta 
+	    content: '';
+	    border: 15px solid transparent;
+	    border-top-color: white;
+      //posicionando triângulo
+      position: absolute;
+      top: 0px;
+      right: -10px
+  }
+`
+
+export const UsuarioContainer = styled.div`
+    color: green;
+    font-size: 0.8em;
+    font-weight: 600;
+    margin-bottom: 0.2em;
+
+`
+
+
+export const InputsContainer = styled.div`
+  display: flex;
+  width: 45vw;
+  
+  
+`
+export const InputUsuario = styled.input`
+  width: 6vw;
+  border-radius: 5px;
+  margin: 0.6rem;
+  
+`
+export const InputConteudo = styled.input`
+  flex-grow: 1;
+  border-radius: 5px;
+  margin: 0.6rem;
+`
+export const Enviar = styled.button`
+  margin: 1rem;
+  box-sizing: border-box;
+  text-align: center;
+  background-color: greenyellow;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
+  font-weight: 600;
+  
   
 `
 
-export const InputConteudo = styled.input`
-  position: absolute;
-  bottom: 1%;
-  right: 12%;
-  width: 40vw;
-  height: 4vh;
-  border-radius: 8px;
-  border-color: green;
-`
-export const Enviar = styled.button`
-  position: absolute;
-  bottom: 1%;
-  right: 1%;
-  height: 5vh;
-  width: 6vw;
-`
-export const BalaoDeMensagemEu = styled.div`
-  background-color: white;   
-  position: absolute;
-  top: 4%;
-  right: 2%;
-  max-width: 30vw;
-  min-width: 8vw;
-  margin-bottom: 1em;
-  word-wrap: break-word;
- 
-` 
-
-export const BalaoDeMensagemOutro= styled.div`
-  background-color: yellow;
-  position: absolute;
-  top: 4%;
-  right: 2%;
-  max-width: 30vw;
-  min-width: 8vw;
-  margin-bottom: 1em;
-  word-wrap: break-word;
-` 

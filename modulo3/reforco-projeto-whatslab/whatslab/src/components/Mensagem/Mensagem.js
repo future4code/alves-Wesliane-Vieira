@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { MainContainer, InputUsuario, InputConteudo, Enviar, BalaoDeMensagemEu, BalaoDeMensagemOutro } from './styles';
+import { AppContainer, InputUsuario, InputConteudo, Enviar, BalaoDeMensagem, MenssagensContainer, InputsContainer, UsuarioContainer} from './styles';
 
 
 export default function Mensagem() {
@@ -37,50 +37,51 @@ export default function Mensagem() {
   
 // Resetar msg após enviar
 
-      setInputMsg("")
-      
+      setInputMsg("") 
     }
 
 
 
 // Array de objetos do estado, mapeado para um componente
 // Ou, no JSX tamplate string <p>{`${data.usuario}: ${data.mensagem}/// `}</p>
-    const listaDeDadosMap= dado.map((data) => {
-      let user = inputUser.toUpperCase();
-      if( user === "EU") { 
-      return <BalaoDeMensagemEu key={data}> {data.mensagem}</BalaoDeMensagemEu>
-      } else {
+    const listaDeDadosMap = dado.map((data, index) => {
+      
         return (
-          <BalaoDeMensagemOutro >
-         <div>{data.usuario}</div>
-         <div>{data.mensagem}</div>
-         </BalaoDeMensagemOutro>
+          <BalaoDeMensagem key={index}>
+              <div>
+                <UsuarioContainer>
+                  {data.usuario}
+                </UsuarioContainer> 
+                {data.mensagem}
+                </div>
+         </BalaoDeMensagem>
         )
-      }
-    })
-  
-    return (
-      <MainContainer>
-        <div>{listaDeDadosMap}</div>
-        <InputUsuario 
-          value={inputUser}
-          onChange={onChangeInputUser}
-          placeholder='Usuário'
-          onKeyDown={pressEnterToSend}
-        />
-        <InputConteudo
-          value={inputMsg}
-          onChange={onChangeInputMsg}
-          placeholder='Mensagem'
-          onKeyDown={pressEnterToSend}
-        />
-        <Enviar 
-          onClick={adicionarInputs}
-          onKeyDown={pressEnterToSend}>
-            Enviar
-        </Enviar>
-  
-      </MainContainer>
+      })
+
+      return (
+      <AppContainer>
+        <MenssagensContainer>  
+            {listaDeDadosMap}   
+        </MenssagensContainer>
+        <InputsContainer>
+            <InputUsuario 
+              value={inputUser}
+              onChange={onChangeInputUser}
+              placeholder='Usuário'
+              onKeyDown={pressEnterToSend}
+            />
+            <InputConteudo
+              value={inputMsg}
+              onChange={onChangeInputMsg}
+              placeholder='Mensagem'
+              onKeyDown={pressEnterToSend}
+            />
+            <Enviar 
+              onClick={adicionarInputs}
+              onKeyDown={pressEnterToSend}>
+              Enviar</Enviar>
+        </InputsContainer>
+      </AppContainer>
     );
   }
   
