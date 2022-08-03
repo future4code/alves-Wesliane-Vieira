@@ -19,7 +19,20 @@ const InputsContainer = styled.div`
 `;
 
 function App() {
-  const [tarefas, setTarefas] = useState([]);
+  const [tarefas, setTarefas] = useState(
+  [
+	{
+		id: Date.now(), // Gera um número único (id) para cada tarefa.
+		texto: 'Lavar banheiro',
+		completa: false // Indica se a tarefa está completa (true ou false)
+	},
+  {
+		id: Date.now(), 
+		texto: 'Limpar quarto',
+		completa: true // Indica se a tarefa está completa (true ou false)
+	}
+
+  ]);
   const [inputValue, setInputValue] = useState("");
   const [filtro, setFiltro] = useState("");
 
@@ -27,13 +40,27 @@ function App() {
     
   }, []);
 
-  const onChangeInput = (event) => {};
+  const onChangeInput = (event) => {
+    setInputValue(event.target.value)
+  };
 
-  const criaTarefa = () => {};
+  const criaTarefa = () => {
+    const novaTarefa = {
+     id: Date.now(),
+     texto: inputValue,
+     completa: filtro
+    }
+    const novaTarefaLista = [...tarefas, novaTarefa]
+    setTarefas(novaTarefaLista)
+  };
 
-  const selectTarefa = (id) => {};
+  const selectTarefa = (id) => {
+  
+  };
 
-  const onChangeFilter = (event) => {};
+  const onChangeFilter = (event) => {
+    setFiltro(event.target.value)
+  };
 
   const listaFiltrada = tarefas.filter((tarefa) => {
     switch (filtro) {
