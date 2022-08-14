@@ -1,16 +1,13 @@
+import Footer from "./components/Footer/Footer";
 import React from "react";
-import Header from "./components/cards/Header/Header";
-import Footer from "./components/cards/Footer/Footer";
-import Container from "./components/cards/Container/Container";
+import Header from "./components/Header/Header"
 
 function App() {
   return (
-    <>
+    <div className="App">
       <Header />
-      <Container />
       <Footer />
-    </>
-   
+    </div>
   );
 }
 
