@@ -1,44 +1,47 @@
 import axios from "axios";
+import { useEffect, useState } from "react";
 
 function PokeCard(props) {
-  // Passo 4b
-  // Implementa suas variáveis de estado aqui.
+  const [pokemon, setPokemon] = useState({})
+  
+  useEffect((pokeName) => {
+    axios
+       .get(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
+      .then((res) => {
+        setPokemon(res.data);
+       })
+       .catch((err) => {
+         console.error("Erro ao buscar detalhes do pokemon")
+       });
+  }, []);
 
-  // Passo 4c
-  // componentDidMount() {
-  //   this.pegaPokemon(this.props.pokeName);
-  // };
+  useEffect((pokeName) => {
+    if ( pokemon !== {}) {
+      axios
+       .get(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
+      .then((res) => {
+        setPokemon(res.data);
+       })
+       .catch((err) => {
+         console.error("Erro ao buscar detalhes do pokemon")
+       });
+     
+    };
+   }, [pokemon])
 
-  // Passo 4c
-  // componentDidUpdate(prevProps) {
-  //   if (prevProps.pokeName !== this.props.pokeName) {
-  //     this.pegaPokemon(this.props.pokeName);
-  //   };
-  // };
-
-  // Passo 4c
-  // pegaPokemon = (pokeName) => {
-  //   axios
-  //     .get(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
-  //     .then((res) => {
-  //       this.setState({ pokemon: res.data });
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
+  
 
   return (
     <figure>
-      {/* Passo 4d */}
+      {pokemon.name}
       <strong>Nome do Pokémon</strong>
-      {/* Passo 4d */}
+      {pokemon.weight}
       <p>Peso: 1000 Kg</p>
-      {/* Passo 4d */}
+      {pokemon.types}
       <p>Tipo: Fire</p>
-      {/* Passo 4d */}
+      {pokemon.sprites}
       {true && (
-        <img src={""} alt={"Nome do Pokémon"} />
+        <img src={pokemon.sprites.front_default} alt={pokemon.name} />
       )}
     </figure>
   );
