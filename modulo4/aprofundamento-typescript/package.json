@@ -1,0 +1,17 @@
+{
+  "name": "aprofundamento-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./build/index.js",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "Wesliane Silva Vieira",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^18.7.5",
+    "typescript": "^4.7.4"
+  }
+}
